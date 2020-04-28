@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Login } from './login';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { CommunicationServiceService } from 'src/app/services/communication-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,11 @@ export class LoginComponent implements OnInit {
   errorMessage: any;
 
 
-  constructor(private loginService: LoginService, private router: Router) { }
+
+
+  constructor(private loginService: LoginService, private router: Router,
+    private communicationService: CommunicationServiceService
+    ) { }
 
   ngOnInit(): void {
     this.url = "./assets/users/users.json";
@@ -28,12 +33,14 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     const loginDetail = this.usersList.filter(user => user.username == this.formParams.username
       && user.password == this.formParams.password)[0];
-      console.log("loginDetail "+loginDetail);
+     // console.log("loginDetail "+loginDetail);
     if(loginDetail){
       this.valid = true;
       //this.isLoggedIn = true;
-      sessionStorage.setItem('username', this.formParams.username);
+      sessionStorage.setItem('username', loginDetail.username);
       this.router.navigate(['/products']);
+    //  console.log("Emitting Event "+loginDetail.username);
+      this.communicationService.emitChange();
       //sessionStorage.setItem('isLoggedIn', this.isLoggedIn);
     }
     else{
