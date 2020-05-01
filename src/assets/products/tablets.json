@@ -7,7 +7,7 @@
 		"price": 19442,
 		"imageUrl": "assets/imgs/apple_ipad_mini.jpg",
 		"manufacturer": "Apple",
-		"ostype": "iOS",
+		"osType": "iOS",
 		"rating": 4
 	},
 	{
@@ -18,7 +18,7 @@
 		"price": 44119,
 		"imageUrl": "assets/imgs/ipad_air.jpg",
 		"manufacturer": "Apple",
-		"ostype": "iOS",
+		"osType": "iOS",
 		"rating": 3
 	},
 	{
@@ -29,7 +29,7 @@
 		"price": 13400,
 		"imageUrl": "assets/imgs/samsung_tab.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 4
 	},
 	{
@@ -40,7 +40,7 @@
 		"price": 3350,
 		"imageUrl": "assets/imgs/tablet.jpg",
 		"manufacturer": "Micromax",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 3
 	}
 ]

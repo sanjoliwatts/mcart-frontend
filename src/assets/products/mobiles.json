@@ -7,7 +7,7 @@
 		"price": 60569,
 		"imageUrl": "assets/imgs/samsung_note7_coralblue.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 4
 	},
 	{
@@ -18,7 +18,7 @@
 		"price": 60200,
 		"imageUrl": "assets/imgs/samsung_note7_gold.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 4
 	},
 	{
@@ -29,7 +29,7 @@
 		"price": 14990,
 		"imageUrl": "assets/imgs/lumia_640xl.jpg",
 		"manufacturer": "Microsoft",
-		"ostype": "Windows",
+		"osType": "Windows",
 		"rating": 4.3
 	},
 	{
@@ -40,7 +40,7 @@
 		"price": 40501,
 		"imageUrl": "assets/imgs/iphone_gold.jpg",
 		"manufacturer": "Apple",
-		"ostype": "iOS",
+		"osType": "iOS",
 		"rating": 4.2
 	},
 	{
@@ -51,7 +51,7 @@
 		"price": 51950,
 		"imageUrl": "assets/imgs/lumia_950xl.jpg",
 		"manufacturer": "Microsoft",
-		"ostype": "Windows",
+		"osType": "Windows",
 		"rating": 4.3
 	},
 	{
@@ -62,7 +62,7 @@
 		"price": 34900,
 		"imageUrl": "assets/imgs/samsung_edge_gold.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 4
 	},
 	{
@@ -73,7 +73,7 @@
 		"price": 34890,
 		"imageUrl": "assets/imgs/samsung_edge_black.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 3.5
 	},
 	{
@@ -84,7 +84,7 @@
 		"price": 53499,
 		"imageUrl": "assets/imgs/samsung_edge_silver.jpg",
 		"manufacturer": "Samsung",
-		"ostype": "Android",
+		"osType": "Android",
 		"rating": 4.5
 	}
 ]

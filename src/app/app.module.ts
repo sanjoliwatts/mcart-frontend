@@ -12,13 +12,19 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductsComponent } from './components/products/products.component';
 
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { SortByPipe } from './components/products/sort-by.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
     SignupComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductDetailsComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

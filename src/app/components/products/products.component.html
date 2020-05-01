@@ -1,1 +1,78 @@
-<p>products works!</p>
+<nav class="navbar bg-color navbar-dark justify-content-between">
+    <div class="row">
+        <div class="col-md-4">
+                
+        </div>
+        <div class="col-md-8 ">
+            <form class="form-inline float-md-right">
+                <div class="mr-3">
+                    <i class='fas fa-shopping-cart mr-2' style='font-size:36px'></i>
+                    <span class="mr-2">{{noOfItems}} items,</span>
+                    <span>{{totalCost | currency:'INR':'symbol':'1.2-3'}}</span>
+                </div>
+                <input class="form-control mr-sm-2" [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0" (click)="search()">Search</button>
+            </form>
+        </div>
+    </div>  
+</nav>
+
+<div class="container-fluid">
+    <div class="row text-center mb-4">
+        <div class="col-md-6 tab-header" (click)="getProducts('mobiles')" 
+            [ngClass]="{border: (activeComponent=='mobiles')}">
+           <span>Mobiles</span>  
+        </div>
+        <div class="col-md-6 tab-header" (click)="getProducts('tablets')"  [ngClass]="{border: (activeComponent=='tablets')}">
+                <span>Tablets</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+            <div class="float-right">
+                <span>Sort By </span>
+                <select [(ngModel)]="sortoption" >
+                    <option value="relevance">Relevance</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="pricelh">Price - Low to High</option>
+                    <option value="pricehl">Price - High to Low</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class ="col-md-3 mt-2 mb-2" *ngFor="let product of productList | sortBy:sortoption">
+            <div class="card">
+                <div class="card-header text-center" (click)="displayProductDetails(product);">
+                    <img [src]="product.imageUrl">
+                </div>
+                <div class="card-body text-center mt-2 mb-2">
+                    <h6>{{product.productName}}</h6>
+                    <div>{{product.price | currency:'INR'}}</div>
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100" style="font-size:18px;">
+                          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                      </ng-template>
+                      
+                    <ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                    <div>
+                        <button class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+        
+</div>
+
+  
