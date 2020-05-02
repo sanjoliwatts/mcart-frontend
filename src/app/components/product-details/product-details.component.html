@@ -20,7 +20,7 @@
                 <ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
       </span>
     <br><br>
-      <div><b>Price:</b>{{product.price}}</div>
-      <div><b>Description:</b>{{product.description}}</div>
+      <div><b>Price: </b>{{product.price| currency:'INR'}}</div>
+      <div><b>Description: </b>{{product.description}}</div>
   </div>
 </div>

@@ -51,7 +51,20 @@ export class ProductServiceService {
   }
 
   addToCart(product){
-      this.cart.push(product);
+      //product.quantity = 
+      //this.cart.push(product);
+      if(this.cart.filter(p => product.productId== p.productId).length==0){
+        product.quantity = 1;
+        this.cart.push(product);
+      }
+      else{
+        this.cart.filter(p => product.productId== p.productId).map(p => p.quantity++);
+      }
+      console.log(this.cart);
       this.totalCost+=product.price;
+  }
+
+  deleteItem(product){
+
   }
 }

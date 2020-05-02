@@ -8,4 +8,5 @@ export interface Products{
         manufacturer:string;
 		osType:string;
 		rating:number;
+		quantity:number;
 }

@@ -101,4 +101,9 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/productDetails', product.productId]);
   }
 
+  navigateToCart(){
+    console.log("navigate");
+    this.router.navigate(['/cart']);
+  }
+
 }

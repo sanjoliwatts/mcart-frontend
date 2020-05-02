@@ -14,6 +14,8 @@ import { ProductsComponent } from './components/products/products.component';
 
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { SortByPipe } from './components/products/sort-by.pipe';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { SortByPipe } from './components/products/sort-by.pipe';
     SignupComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    SortByPipe
+    SortByPipe,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

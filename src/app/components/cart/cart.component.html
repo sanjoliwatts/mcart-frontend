@@ -1,0 +1,39 @@
+<div class="page-center card"> 
+        <div class="card-header">
+            <h6>My Cart</h6>
+        </div>
+        <div class="card-body">
+                <table *ngIf="productList.length>0" class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total Price</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let product of productList">
+                          <tr >
+                            <td>{{product.productName}}</td>
+                            <td><input type="number" [(ngModel)]="product.quantity"></td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.price* product.quantity}}</td>
+                            <td (click)="deleteItem(product)"><i class='fas fa-trash' style='font-size:24px'></i></td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+                      <div *ngIf="productList.length==0">
+                          <h6 class="m-2">Cart is Empty!! Please add some products</h6>
+                      </div>
+        </div>
+        <div class="row text-center">
+                <div class="col-md-6">
+                        <button class="btn btn-primary" (click)="navigateToProducts()">Continue Shopping</button>
+                    </div>
+                    <div class="col-md-6">
+                            <button class="btn btn-primary" [disabled]="productList.length ==0" (click)="navigateToCheckout()">Checkout</button>
+                        </div>
+        </div>
+
+</div>
