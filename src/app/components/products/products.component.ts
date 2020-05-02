@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { Products } from './products';
 import { CommentStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -20,9 +21,11 @@ export class ProductsComponent implements OnInit {
   activeComponent:string = "mobiles";
   sortoption="relevance";
   searchText:string;
+  cart:Array<Products>;
+  pp:[Products];
 
 
-  constructor(private productService:ProductServiceService) { }
+  constructor(private productService:ProductServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProductsInit('mobiles');
@@ -32,7 +35,7 @@ export class ProductsComponent implements OnInit {
       {
         this.productList = this.mobileList;
         console.log(this.productList);
-      },3000);
+      },2000);
   }
 
   getProducts(productType){
@@ -80,9 +83,11 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(product){
+    this.productService.addToCart(product);
+    //this.cart.push(product);
     this.noOfItems++;
-    this.totalCost+= product.price;
-    console.log("this.totalCost "+JSON.stringify(product));
+    this.totalCost= this.productService.totalCost;
+    console.log("this.totalCost "+this.productService.cart);
   }
 
   search(){
@@ -93,7 +98,7 @@ export class ProductsComponent implements OnInit {
   }
 
   displayProductDetails(product){
-    
+    this.router.navigate(['/productDetails', product.productId]);
   }
 
 }

@@ -6,7 +6,7 @@
         <div class="col-md-8 ">
             <form class="form-inline float-md-right">
                 <div class="mr-3">
-                    <i class='fas fa-shopping-cart mr-2' style='font-size:36px'></i>
+                    <i [routerLink]='["/cart"]' class='fas fa-shopping-cart mr-2' style='font-size:36px'></i>
                     <span class="mr-2">{{noOfItems}} items,</span>
                     <span>{{totalCost | currency:'INR':'symbol':'1.2-3'}}</span>
                 </div>

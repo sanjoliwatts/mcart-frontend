@@ -41,7 +41,7 @@ export class SortByPipe implements PipeTransform {
         }
       });
     }
-    console.log("value "+value);
+    //console.log("value "+value);
     return value;
 
   }

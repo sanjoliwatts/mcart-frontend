@@ -14,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'signup', component:  SignupComponent},
   { path: 'products', component:  ProductsComponent},
   { path: 'productDetails/:id', component: ProductDetailsComponent}
+  // { path: 'cart', component:  CartComponent},
   //{ path: 'products', loadChildren: () => import('./products/products.module').then(m=>m.ProductsModule) },
   // { path: 'detail/:id', component: BookDetailComponent }
 ];
