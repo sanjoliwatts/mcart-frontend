@@ -6,6 +6,32 @@
         <p>You have purchased the following items. Thank you for making the payment.
             Your order will be shipped soon.
         </p>
-       
+        <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Order Id</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let product of orderList">
+                  <tr>
+                    <td>1004</td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price | currency:'INR'}}</td>
+                    <td>{{product.price* product.quantity| currency:'INR'}}</td>
+                    
+                  </tr>
+                </tbody>
+            </table>
+                  <div class="text-right mr-3">
+                      <h5>Total: {{totalAmount| currency:'INR'}}</h5>
+                  </div>
+                 <div class="text-center">
+                     <button class="btn btn-primary" (click)="navigateToProducts()">Go to Products Page</button></div>
+               
     </div>
 </div>

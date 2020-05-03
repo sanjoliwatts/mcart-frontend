@@ -51,14 +51,20 @@ export class ProductServiceService {
   }
 
   addToCart(product){
+    console.log("service ");
       //product.quantity = 
       //this.cart.push(product);
       if(this.cart.filter(p => product.productId== p.productId).length==0){
+        console.log("if");
         product.quantity = 1;
         this.cart.push(product);
       }
       else{
-        this.cart.filter(p => product.productId== p.productId).map(p => p.quantity++);
+      //  console.log("else "+JSON.stringify(this.cart.filter(p => product.productId== p.productId)));
+        this.cart.filter(p => product.productId== p.productId).map(p => {
+          p.quantity+=1
+        //  console.log("..."+JSON.stringify(p));
+        });
       }
       console.log(this.cart);
       this.totalCost+=product.price;
@@ -66,5 +72,11 @@ export class ProductServiceService {
 
   deleteItem(product){
 
+  }
+
+  calculateTotal(){
+    console.log("... "+JSON.stringify(this.cart));
+    this.totalCost = this.cart.reduce((total,p) => (total+(p.quantity* p.price)),0);
+    return this.totalCost;
   }
 }
