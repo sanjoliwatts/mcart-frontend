@@ -25,7 +25,9 @@ export class CartComponent implements OnInit, OnChanges {
 
   updateCart(product){
    // this.productService.addToCart(product);
-    this.totalAmount = this.productService.calculateTotal();
+    this.productService.calculateTotal();
+    this.totalAmount = this.productService.totalCost;
+
   }
 
 
@@ -38,7 +40,9 @@ export class CartComponent implements OnInit, OnChanges {
   }
 
   deleteItem(product){
-
+    this.productService.deleteItem(product);
+    this.productList = this.productService.cart;
+    this.totalAmount = this.productService.totalCost;
   }
 
 }

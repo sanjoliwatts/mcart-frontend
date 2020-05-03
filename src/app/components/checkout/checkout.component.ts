@@ -20,6 +20,9 @@ export class CheckoutComponent implements OnInit {
   }
   
   navigateToProducts(){
+    this.productService.cart = [];
+    this.productService.noOfItems = 0;
+    this.productService.totalCost = 0;
     this.router.navigate(['/products']);
   }
 

@@ -28,8 +28,11 @@ export class ProductsComponent implements OnInit {
   constructor(private productService:ProductServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.initializeCart();
+   // console.log("Inside init "+this.productService.cart);
     this.getProductsInit('mobiles');
     this.getProductsInit('tablets');
+     
     
     setTimeout(c =>
       {
@@ -85,7 +88,7 @@ export class ProductsComponent implements OnInit {
   addToCart(product){
     this.productService.addToCart(product);
     //this.cart.push(product);
-    this.noOfItems++;
+    this.noOfItems = this.productService.noOfItems;
     this.totalCost= this.productService.totalCost;
     console.log("this.totalCost "+this.productService.cart);
   }
@@ -104,6 +107,12 @@ export class ProductsComponent implements OnInit {
   navigateToCart(){
     console.log("navigate");
     this.router.navigate(['/cart']);
+  }
+
+  initializeCart(){
+    this.cart = this.productService.cart;
+    this.noOfItems = this.productService.noOfItems;
+    this.totalCost = this.productService.totalCost;
   }
 
 }

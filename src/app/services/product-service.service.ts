@@ -13,6 +13,7 @@ export class ProductServiceService {
   observe:Observable<Products>;
   cart:Array<Products>  = [];
   totalCost:number = 0;
+  noOfItems:number = 0;
 
   constructor(private http:HttpClient) { }
 
@@ -68,15 +69,25 @@ export class ProductServiceService {
       }
       console.log(this.cart);
       this.totalCost+=product.price;
+      this.noOfItems+=1;
   }
 
   deleteItem(product){
-
+    if(product.quantity>1){
+      this.cart.filter(p => product.productId== p.productId).map(p => {
+        p.quantity-=1
+      });
+    }
+    else{
+      this.cart = this.cart.filter(p => p.productId!= product.productId);
+    }
+    this.totalCost-= product.price;
+    this.noOfItems-=1;
   }
 
   calculateTotal(){
     console.log("... "+JSON.stringify(this.cart));
     this.totalCost = this.cart.reduce((total,p) => (total+(p.quantity* p.price)),0);
-    return this.totalCost;
+    this.noOfItems = this.cart.reduce((total,p)=> total+p.quantity,0);
   }
 }
