@@ -22,7 +22,6 @@ export class ProductDetailsComponent implements OnInit {
       this.productService.getProductById(+params.get('id'),this.mobileUrl))).subscribe(
         product => {
         this.product = product;
-       // console.log("1"+this.product);
         if(this.product == null){
           this.route.paramMap.pipe(switchMap((params: ParamMap) =>
            this.productService.getProductById(+params.get('id'),this.tabletUrl))).subscribe(
@@ -32,15 +31,6 @@ export class ProductDetailsComponent implements OnInit {
         }
         });
 
-  // ngOnInit(): void {
-  //   this.subject =  this.route.paramMap.pipe(switchMap((params: ParamMap) =>
-  //      this.productService.getProductById(+params.get('id'),this.mobileUrl))).subscribe(
-  //        product => {
-  //        this.product = product;
-  //        console.log("1"+this.product);
-  //        }
-  //        );
-  //       
         //The below lines of code also gives the same output
         /* const id = +this.route.snapshot.paramMap.get('id');
           this.productService.getProductById(id)

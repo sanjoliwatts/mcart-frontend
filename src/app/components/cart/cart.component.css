@@ -7,11 +7,5 @@
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    
-    /* font-size: 20px; */
-    /* background-color: cyan; */
-    /* border: darkgreen 5px solid; */
-   
-    
     z-index: 100;
 }

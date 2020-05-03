@@ -67,7 +67,6 @@ export class ProductServiceService {
         //  console.log("..."+JSON.stringify(p));
         });
       }
-      console.log(this.cart);
       this.totalCost+=product.price;
       this.noOfItems+=1;
   }
@@ -86,7 +85,6 @@ export class ProductServiceService {
   }
 
   calculateTotal(){
-    console.log("... "+JSON.stringify(this.cart));
     this.totalCost = this.cart.reduce((total,p) => (total+(p.quantity* p.price)),0);
     this.noOfItems = this.cart.reduce((total,p)=> total+p.quantity,0);
   }

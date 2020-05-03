@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeCart();
-   // console.log("Inside init "+this.productService.cart);
     this.getProductsInit('mobiles');
     this.getProductsInit('tablets');
      
@@ -37,7 +36,6 @@ export class ProductsComponent implements OnInit {
     setTimeout(c =>
       {
         this.productList = this.mobileList;
-        console.log(this.productList);
       },2000);
   }
 
@@ -48,7 +46,6 @@ export class ProductsComponent implements OnInit {
       this.productList = this.mobileList;
     }
     else{
-      console.log("Inside else");
       this.activeComponent = "tablets";
       this.productList = this.tabletList;
     }
@@ -58,7 +55,6 @@ export class ProductsComponent implements OnInit {
     if(productType == "mobiles"){
       this.productService.getProducts(this.mobileUrl).subscribe(
         mobileList => {
-          console.log(mobileList);
           this.mobileList = mobileList;
         },
         err => {
@@ -87,17 +83,14 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product){
     this.productService.addToCart(product);
-    //this.cart.push(product);
     this.noOfItems = this.productService.noOfItems;
     this.totalCost= this.productService.totalCost;
-    console.log("this.totalCost "+this.productService.cart);
   }
 
   search(){
     this.productList = this.productList.filter((product) => 
       product.productName.toLowerCase().indexOf(this.searchText)!=-1
     );
-    console.log(this.productList);
   }
 
   displayProductDetails(product){
@@ -105,7 +98,6 @@ export class ProductsComponent implements OnInit {
   }
 
   navigateToCart(){
-    console.log("navigate");
     this.router.navigate(['/cart']);
   }
 
